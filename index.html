@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User ID Card Download</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Custom styling for enhanced look */
+    .navbar {
+      background: linear-gradient(to right, #4c8bf5, #1f4aa1);
+    }
+
+    .table-row:hover {
+      background-color: #f1f5f9;
+      cursor: pointer;
+    }
+
+    .download-button:hover {
+      transform: scale(1.05);
+      background-color: #0f766e;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="navbar p-4 flex justify-between items-center text-white shadow-md">
+    <div class="text-2xl font-bold">User Management</div>
+    <button class="bg-white text-blue-600 font-semibold px-4 py-2 rounded flex items-center hover:bg-gray-200">
+      <i class="fas fa-download mr-2"></i> Download All
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto mt-8">
+    <!-- CNIC Input and Find Button -->
+    <div class="flex justify-center mb-6">
+      <input type="text" id="cnicInput" placeholder="Enter CNIC" class="border border-gray-300 p-3 rounded-l-md w-1/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button id="findButton" class="bg-blue-600 text-white px-6 py-3 rounded-r-md hover:bg-blue-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">Find</button>
+    </div>
+
+    <!-- User Table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-md">
+        <thead class="bg-blue-50">
+          <tr>
+            <th class="py-3 px-5 text-left text-sm font-semibold text-gray-600 border-b">Course</th>
+            <th class="py-3 px-5 text-left text-sm font-semibold text-gray-600 border-b">Batch</th>
+            <th class="py-3 px-5 text-center text-sm font-semibold text-gray-600 border-b">Download</th>
+          </tr>
+        </thead>
+        <tbody id="userTable" class="divide-y divide-gray-200">
+          <!-- Dynamically populated rows will go here -->
+          <!-- Example row -->
+          <tr class="table-row">
+            <td class="py-4 px-5 text-gray-700">Web Development</td>
+            <td class="py-4 px-5 text-gray-700">2024</td>
+            <td class="py-4 px-5 text-center">
+              <button class="download-button bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-150 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" onclick="downloadIDCard()">Download</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('findButton').addEventListener('click', function() {
+      // Mockup: Replace this with your actual fetching logic
+      const cnic = document.getElementById('cnicInput').value;
+      if (cnic) {
+        // Fetch user data by CNIC and populate the table
+        console.log('Fetching data for CNIC:', cnic);
+        // Here, populate the table with the user's data
+        const table = document.getElementById('userTable');
+        table.innerHTML = `
+          <tr class="table-row">
+            <td class="py-4 px-5 text-gray-700">Web Development</td>
+            <td class="py-4 px-5 text-gray-700">2024</td>
+            <td class="py-4 px-5 text-center">
+              <button class="download-button bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-150 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" onclick="downloadIDCard()">Download</button>
+            </td>
+          </tr>
+        `;
+      } else {
+        alert('Please enter a CNIC');
+      }
+    });
+
+    function downloadIDCard() {
+      // Mockup: Replace this with your actual download logic
+      console.log('Downloading ID Card...');
+      alert('ID Card Downloaded!');
+    }
+  </script>
+</body>
+</html>
